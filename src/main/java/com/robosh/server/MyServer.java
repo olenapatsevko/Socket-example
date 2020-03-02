@@ -47,7 +47,9 @@ public class MyServer implements Runnable {
     String[] inputWords = removeSpaces(input).split("\\s");
     System.out.println("From language: " + inputWords[0]);
     System.out.println("To language: " + inputWords[1]);
-    System.out.println("Word: " + inputWords[2]);
-    return Translator.translate(inputWords[0], inputWords[1], inputWords[2]);
+    int startIndex = input.indexOf(inputWords[2]);
+    String word = input.substring(startIndex);
+    System.out.println("Word: " + word);
+    return Translator.translate(inputWords[0], inputWords[1], word);
   }
 }
